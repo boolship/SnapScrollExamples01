@@ -14,7 +14,7 @@ namespace SnapScrollExamples01
     public sealed partial class App
     {
 #if WINDOWS_PHONE_APP
-        private TransitionCollection transitions;
+        private TransitionCollection _transitions;
 #endif
 
         /// <summary>
@@ -67,15 +67,15 @@ namespace SnapScrollExamples01
                 // Removes the turnstile navigation for startup.
                 if (rootFrame.ContentTransitions != null)
                 {
-                    this.transitions = new TransitionCollection();
+                    _transitions = new TransitionCollection();
                     foreach (var c in rootFrame.ContentTransitions)
                     {
-                        this.transitions.Add(c);
+                        _transitions.Add(c);
                     }
                 }
 
                 rootFrame.ContentTransitions = null;
-                rootFrame.Navigated += this.RootFrame_FirstNavigated;
+                rootFrame.Navigated += RootFrame_FirstNavigated;
 #endif
 
                 // When the navigation stack isn't restored navigate to the first page,
@@ -100,8 +100,11 @@ namespace SnapScrollExamples01
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
-            rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
-            rootFrame.Navigated -= this.RootFrame_FirstNavigated;
+            if (rootFrame != null)
+            {
+                rootFrame.ContentTransitions = _transitions ?? new TransitionCollection { new NavigationThemeTransition() };
+                rootFrame.Navigated -= RootFrame_FirstNavigated;
+            }
         }
 #endif
 
