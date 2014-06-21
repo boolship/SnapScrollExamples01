@@ -27,6 +27,26 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="TabNavigation" Value="Local" />
         </Style>
+        
+        <DataTemplate x:Key="GridViewTileTemplate">
+            <Rectangle x:Name="ItemRectangle"
+                       Fill="Coral"
+                       Height="100"
+                       Width="180"
+                       />
+        </DataTemplate>
+        <Style x:Key="MyGridViewTileStyle"  TargetType="GridViewItem">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="Background" Value="DarkOliveGreen" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Width" Value="270" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="TabNavigation" Value="Local" />
+        </Style>
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -38,19 +58,50 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GridView x:Name="TopLeft"
+        <!--## Left to Right ## :: ## Up and Down ##
+            NormalGridView      :: NormalListView
+            HorizontalListView  :: VerticalGridView
+            ## Left to Right ## :: ## Up and Down ##
+        -->
+        <GridView x:Name="NormalGridView"
                   Grid.Row="0"
-                  Grid.Column="0">
+                  Grid.Column="0"
+                  ItemTemplate="{StaticResource GridViewTileTemplate}"
+                  ItemContainerStyle="{StaticResource MyGridViewTileStyle}"
+                  Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                  BorderBrush="DeepPink"
+                  BorderThickness="2"
+                  ShowsScrollingPlaceholders="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  SelectionMode="None">
             
         </GridView>
-        <GridView x:Name="TopRight"
-                  Grid.Row="0"
-                  Grid.Column="1">
-
-        </GridView>
-        <ListView x:Name="BottomLeft"
+        
+        <GridView x:Name="VerticalGridView"
                   Grid.Row="1"
-                  Grid.Column="0"
+                  Grid.Column="1"
+                  ItemTemplate="{StaticResource GridViewTileTemplate}"
+                  ItemContainerStyle="{StaticResource MyGridViewTileStyle}"
+                  Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                  BorderBrush="DeepPink"
+                  BorderThickness="2"
+                  ShowsScrollingPlaceholders="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollMode="Disabled"
+                  SelectionMode="None">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>
+        
+        <ListView x:Name="NormalListView"
+                  Grid.Row="0"
+                  Grid.Column="1"
                   ItemTemplate="{StaticResource ListViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyListViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
@@ -61,9 +112,10 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   SelectionMode="None">
         </ListView>
-        <ListView x:Name="BottomRight"
+        
+        <ListView x:Name="HorizontalListView"
                   Grid.Row="1"
-                  Grid.Column="1"
+                  Grid.Column="0"
                   ItemTemplate="{StaticResource ListViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyListViewTileStyle}"                  
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"

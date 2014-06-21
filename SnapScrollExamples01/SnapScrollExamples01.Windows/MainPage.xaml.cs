@@ -10,12 +10,17 @@ namespace SnapScrollExamples01
         {
             InitializeComponent();
 
+            var gridViewData1 = new GridViewData();
+            NormalGridView.ItemsSource = gridViewData1.Collection;
+
+            var gridViewData2 = new GridViewData();
+            VerticalGridView.ItemsSource = gridViewData2.Collection;
 
             var listViewData1 = new ListViewData();
-            BottomLeft.ItemsSource = listViewData1.Collection;
+            NormalListView.ItemsSource = listViewData1.Collection;
 
             var listViewData2 = new ListViewData();
-            BottomRight.ItemsSource = listViewData2.Collection;
+            HorizontalListView.ItemsSource = listViewData2.Collection;
         }
     }
 }

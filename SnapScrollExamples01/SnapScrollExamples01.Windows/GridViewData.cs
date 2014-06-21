@@ -1,19 +1,21 @@
 ﻿
 namespace SnapScrollExamples01
 {
-    public class ListViewData
+    public class GridViewData
     {
-        public ListViewData()
+        public GridViewData()
         {
             string[] names =
             {
                 "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth",
-                "Tenth"
+                "Tenth", "Eleventh", "Twelveth", "Thirteenth", "Fourteenth", "Fifteenth", "Sixteenth", 
+                "Seventeenth", "Eighteenth", "Nineteenth", "Twentyth", "TwentyFirst", "TwentySecond",
+                "TwenthThird", "TwentyFourth", "TwentyFifth"
             };
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 25; i++)
             {
                 var name = i < names.Length ? names[i] : "default";
-                var item = new Item {Title = name};
+                var item = new Item { Title = name };
                 Collection.Add(item);
             }
 
@@ -29,5 +31,6 @@ namespace SnapScrollExamples01
                 return _collection;
             }
         }
-    }   
+    }
+
 }
