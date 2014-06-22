@@ -55,11 +55,15 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="TabNavigation" Value="Local" />
         </Style>
-        
-        <!--<Style x:Key="VerticalScrollViewerStyle" TargetType="ScrollViewer">
-            <Setter Property="VerticalScrollMode" Value="Enabled"/>
+
+        <!--Style="{StaticResource MyVerticalScrollViewerStyle}"-->
+        <Style x:Key="MyVerticalScrollViewerStyle" TargetType="ScrollViewer">
+            <!--<Setter Property="VerticalScrollMode" Value="Enabled"/>-->
+            <Setter Property="VerticalSnapPointsAlignment" Value="Near"/>
+            <Setter Property="VerticalSnapPointsType" Value="MandatorySingle"/>
         </Style>
         
+        <!--TODO bug wrong code-->
         <Style x:Key="MyItemsControlStyle" TargetType="ItemsControl">
             <Setter Property="ItemsPanel">
                 <Setter.Value>
@@ -71,15 +75,34 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ItemsControl">
-                        <ScrollViewer VerticalSnapPointsAlignment="Near"
+                        <ScrollViewer x:Name="NormalScrollViewer"
+                                      VerticalSnapPointsAlignment="Near"
                                       VerticalSnapPointsType="MandatorySingle"
-                                      Style="{StaticResource VerticalScrollViewerStyle}">
-                            <ItemsPresenter/>                            
+                                      Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                                      BorderBrush="DeepPink"
+                                      BorderThickness="2">
+                            <StackPanel>
+                                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            </StackPanel>                            
                         </ScrollViewer>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -108,25 +131,22 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   SelectionMode="None">
-            <!--<GridView.ItemsPanel>
+            <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapGrid Orientation="Vertical" 
-                              MaximumRowsOrColumns="3"/>
+                    <WrapGrid Orientation="Vertical" />
                 </ItemsPanelTemplate>
-            </GridView.ItemsPanel>-->
+            </GridView.ItemsPanel>
         </GridView>
 
+        <!--Height="300" Width="500"   Height="150" Width="250"-->
         <!--VerticalSnapPointsAlignment="Near"
                       VerticalSnapPointsType="MandatorySingle"-->
-        <!--<ScrollViewer x:Name="NormalScrollViewer"
-                      Grid.Row="1"
+        <!--ItemsControl Style="{StaticResource MyItemsControlStyle}"-->
+        <!--local:SnappingItemsControl-->
+        <ItemsControl Grid.Row="1"
                       Grid.Column="1"
-                      
-                      Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
-                      BorderBrush="DeepPink"
-                      BorderThickness="2">
-            <ItemsControl Style="{StaticResource MyItemsControlStyle}">
-                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                      Style="{StaticResource MyItemsControlStyle}" >
+                <!--<Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -140,18 +160,14 @@
                 <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            </ItemsControl>
-        </ScrollViewer>-->
-        <!--Height="300" Width="500"   Height="150" Width="250"-->
-        <!--<StackPanel>-->
-        <!--</StackPanel>-->
+                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+        </ItemsControl>
         <!--<ListView></ListView>-->
         
         <GridView x:Name="VerticalGridView"
                   Grid.Row="1"
                   Grid.Column="1"
-                  Visibility="Visible"
+                  Visibility="Collapsed"
                   ItemTemplate="{StaticResource MyGridViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyGridViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
@@ -169,6 +185,76 @@
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
         </GridView>
+
+        <!--<ScrollViewer x:Name="NormalScrollViewer"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      VerticalSnapPointsAlignment="Near"
+                      VerticalSnapPointsType="MandatorySingle"
+                      Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                      BorderBrush="DeepPink"
+                      BorderThickness="2">
+            <StackPanel>
+                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </StackPanel>
+        </ScrollViewer>-->
+
+        <!--<ScrollViewer x:Name="NormalScrollViewer"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      VerticalSnapPointsAlignment="Near"
+                      VerticalSnapPointsType="MandatorySingle"
+                      Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                      BorderBrush="DeepPink"
+                      BorderThickness="2">
+            <local:SnappingItemsControl >
+                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </local:SnappingItemsControl>
+        </ScrollViewer>-->
         
         <ListView x:Name="NormalListView"
                   Grid.Row="0"

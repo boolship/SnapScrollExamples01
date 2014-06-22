@@ -28,15 +28,19 @@ namespace SnapScrollExamples01
             HorizontalListView.ItemsSource = listViewData2.Collection;
 
             // debug only
-            //WinRTXamlToolkit.Debugging.DC.ShowVisualTree();
+            WinRTXamlToolkit.Debugging.DC.ShowVisualTree();
 
             Workarounds();
         }
 
         /// <summary>
-        /// What implements IScrollSnapPointsInfo??
+        /// What implements IScrollSnapPointsInfo?? 
         /// 
-        /// Panel\StackPanel** - yes**
+        /// Panel\StackPanel** - yes** (working)
+        /// ItemsControl**\local:SnappingItemsControl - yes** (working)
+        /// 
+        /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\VirtualizingStackPanel** - yes** (bug: not working)
+        /// 
         /// ItemsControl\Selector\ListViewBase\GridView - no, yes iff GridView.ItemsPanel contains WrapGrid
         /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\WrapGrid - yes**
         /// 
