@@ -9,7 +9,7 @@
 
     <Page.Resources>
         <!--Height="200" Width="400"-->
-        <DataTemplate x:Key="ListViewTileTemplate">
+        <DataTemplate x:Key="MyListViewTileTemplate">
             <Rectangle x:Name="ItemRectangle"
                        Fill="Coral"
                        Height="200"
@@ -32,15 +32,17 @@
         </Style>
 
         <!--Height="80" Width="160"-->
-        <DataTemplate x:Key="GridViewTileTemplate">
+        <!--Height="200" Width="400"-->
+        <DataTemplate x:Key="MyGridViewTileTemplate">
             <Rectangle x:Name="ItemRectangle"
                        Fill="Coral"
-                       Height="80"
-                       Width="160"
+                       Height="80" Width="160"
                        />
         </DataTemplate>
         <!--<Setter Property="Height" Value="120" />
         <Setter Property="Width" Value="200" />-->
+        <!--<Setter Property="Height" Value="300" />
+        <Setter Property="Width" Value="500" />-->
         <Style x:Key="MyGridViewTileStyle"  TargetType="GridViewItem">
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="Background" Value="DarkOliveGreen" />
@@ -53,6 +55,31 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="TabNavigation" Value="Local" />
         </Style>
+        
+        <!--<Style x:Key="VerticalScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="VerticalScrollMode" Value="Enabled"/>
+        </Style>
+        
+        <Style x:Key="MyItemsControlStyle" TargetType="ItemsControl">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <ScrollViewer VerticalSnapPointsAlignment="Near"
+                                      VerticalSnapPointsType="MandatorySingle"
+                                      Style="{StaticResource VerticalScrollViewerStyle}">
+                            <ItemsPresenter/>                            
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -72,7 +99,7 @@
         <GridView x:Name="NormalGridView"
                   Grid.Row="0"
                   Grid.Column="0"
-                  ItemTemplate="{StaticResource GridViewTileTemplate}"
+                  ItemTemplate="{StaticResource MyGridViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyGridViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="DeepPink"
@@ -81,13 +108,51 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   SelectionMode="None">
-            
+            <!--<GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Vertical" 
+                              MaximumRowsOrColumns="3"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>-->
         </GridView>
+
+        <!--VerticalSnapPointsAlignment="Near"
+                      VerticalSnapPointsType="MandatorySingle"-->
+        <!--<ScrollViewer x:Name="NormalScrollViewer"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      
+                      Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                      BorderBrush="DeepPink"
+                      BorderThickness="2">
+            <ItemsControl Style="{StaticResource MyItemsControlStyle}">
+                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </ItemsControl>
+        </ScrollViewer>-->
+        <!--Height="300" Width="500"   Height="150" Width="250"-->
+        <!--<StackPanel>-->
+        <!--</StackPanel>-->
+        <!--<ListView></ListView>-->
         
         <GridView x:Name="VerticalGridView"
                   Grid.Row="1"
                   Grid.Column="1"
-                  ItemTemplate="{StaticResource GridViewTileTemplate}"
+                  Visibility="Visible"
+                  ItemTemplate="{StaticResource MyGridViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyGridViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="DeepPink"
@@ -108,7 +173,7 @@
         <ListView x:Name="NormalListView"
                   Grid.Row="0"
                   Grid.Column="1"
-                  ItemTemplate="{StaticResource ListViewTileTemplate}"
+                  ItemTemplate="{StaticResource MyListViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyListViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="DeepPink"
@@ -122,7 +187,7 @@
         <ListView x:Name="HorizontalListView"
                   Grid.Row="1"
                   Grid.Column="0"
-                  ItemTemplate="{StaticResource ListViewTileTemplate}"
+                  ItemTemplate="{StaticResource MyListViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyListViewTileStyle}"                  
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                   BorderBrush="DeepPink"
