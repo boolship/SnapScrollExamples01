@@ -27,6 +27,12 @@ namespace SnapScrollExamples01
             var listViewData2 = new ListViewData();
             HorizontalListView.ItemsSource = listViewData2.Collection;
 
+            var flipViewData1 = new FlipViewData();
+            NormalFlipView.ItemsSource = flipViewData1.Collection;
+
+            var flipViewData2 = new FlipViewData();
+            //VerticalFlipView.ItemsSource = flipViewData2.Collection;
+
             // debug only
             WinRTXamlToolkit.Debugging.DC.ShowVisualTree();
 
@@ -37,14 +43,18 @@ namespace SnapScrollExamples01
         /// What implements IScrollSnapPointsInfo?? 
         /// 
         /// Panel\StackPanel** - yes** (working)
-        /// ItemsControl**\local:SnappingItemsControl - yes** (working)
+        /// Control\ItemsControl\local:SnappingItemsControl** - yes** (working)
+        /// ItemsPresenter** - yes**
         /// 
-        /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\VirtualizingStackPanel** - yes** (bug: not working)
+        /// Control\ItemsControl - no, yes iff ItemsControl custom style (not working)
+        ///   Create custom style for items control and set HorizontalSnapPointsType property on ScrollViewer inside the style
+        /// Control\ItemsControl\Selector\ListViewBase\GridView - no, yes iff GridView.ItemsPanel contains WrapGrid (not working)
+        /// Control\ItemsControl\Selector\ListViewBase\ListView - no
+        /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\WrapGrid - yes**  (not working)
+        /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\VirtualizingStackPanel** - yes**  (not working)
         /// 
-        /// ItemsControl\Selector\ListViewBase\GridView - no, yes iff GridView.ItemsPanel contains WrapGrid
-        /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\WrapGrid - yes**
-        /// 
-        /// ItemsControl\Selector\ListViewBase\ListView - no
+        /// Control\ItemsControl - no
+        /// Control\ItemsControl\Selector\ListViewBase\ListView - no
         /// Panel\ItemsWrapGrid - no
         /// ListBox - no
         /// </summary>

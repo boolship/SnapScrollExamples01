@@ -103,6 +103,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FlipViewData.cs" />
     <Compile Include="GridViewData.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemCollection.cs" />
