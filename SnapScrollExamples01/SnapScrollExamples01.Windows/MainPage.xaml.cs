@@ -31,7 +31,7 @@ namespace SnapScrollExamples01
             NormalFlipView.ItemsSource = flipViewData1.Collection;
 
             var flipViewData2 = new FlipViewData();
-            //VerticalFlipView.ItemsSource = flipViewData2.Collection;
+            VerticalFlipView.ItemsSource = flipViewData2.Collection;
 
             // debug only
             WinRTXamlToolkit.Debugging.DC.ShowVisualTree();
