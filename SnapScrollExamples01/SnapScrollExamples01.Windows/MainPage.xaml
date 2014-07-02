@@ -8,62 +8,8 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!--Height="200" Width="400"-->
-        <DataTemplate x:Key="MyFlipViewTileTemplate">
-            <Rectangle x:Name="ItemRectangle"
-                       Fill="Coral"
-                       Height="200" Width="400"
-                       />
-        </DataTemplate>
-        <!--<Setter Property="Height" Value="300" />
-        <Setter Property="Width" Value="500" />-->
-        <Style x:Key="MyFlipViewTileStyle" TargetType="FlipViewItem">
-            <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="Background" Value="DarkOliveGreen"/>
-            <Setter Property="Height" Value="300" />
-            <Setter Property="Width" Value="500" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="Margin" Value="0,0,8,8" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="TabNavigation" Value="Local" />
-        </Style>
-        
-        <!--Height="200" Width="400"-->
-        <DataTemplate x:Key="MyListViewTileTemplate">
-            <Rectangle x:Name="ItemRectangle"
-                       Fill="Coral"
-                       Height="200" Width="400"
-                       />
-        </DataTemplate>
-        <!--<Setter Property="Height" Value="300" />
-        <Setter Property="Width" Value="500" />-->
-        <Style x:Key="MyListViewTileStyle"  TargetType="ListViewItem">
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="Background" Value="DarkOliveGreen" />
-            <Setter Property="Height" Value="300" />
-            <Setter Property="Width" Value="500" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="Margin" Value="0,0,8,8" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="TabNavigation" Value="Local" />
-        </Style>
 
-        <!--Height="80" Width="160"-->
-        <!--Height="200" Width="400"-->
-        <DataTemplate x:Key="MyGridViewTileTemplate">
-            <Rectangle x:Name="ItemRectangle"
-                       Fill="Coral"
-                       Height="80" Width="160"
-                       />
-        </DataTemplate>
-        <!--<Setter Property="Height" Value="120" />
-        <Setter Property="Width" Value="200" />-->
-        <!--<Setter Property="Height" Value="300" />
-        <Setter Property="Width" Value="500" />-->
+        <!--GridView-->
         <Style x:Key="MyGridViewTileStyle"  TargetType="GridViewItem">
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="Background" Value="DarkOliveGreen" />
@@ -75,19 +21,117 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="TabNavigation" Value="Local" />
+            <!--<Setter Property="Height" Value="300" />
+            <Setter Property="Width" Value="500" />-->
         </Style>
+        <DataTemplate x:Key="MyGridViewTileTemplate">
+            <Rectangle x:Name="ItemRectangle"
+                       Fill="Coral"
+                       Height="80" Width="160"
+                       />
+            <!--Height="200" Width="400"-->
+        </DataTemplate>
 
-        <!--Style="{StaticResource MyVerticalScrollViewerStyle}"-->
-        <Style x:Key="MyVerticalScrollViewerStyle" TargetType="ScrollViewer">
-            <Setter Property="VerticalScrollMode" Value="Enabled"/>
-            <Setter Property="VerticalSnapPointsAlignment" Value="Near"/>
-            <Setter Property="VerticalSnapPointsType" Value="MandatorySingle"/>
+        <!--ListView-->
+        <Style x:Key="MyListViewTileStyle"  TargetType="ListViewItem">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="Background" Value="DarkOliveGreen" />
+            <Setter Property="Height" Value="300" />
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="TabNavigation" Value="Local" />
+            <!--<Setter Property="Height" Value="120" />
+            <Setter Property="Width" Value="200" />-->
+        </Style>
+        <DataTemplate x:Key="MyListViewTileTemplate">
+            <Rectangle x:Name="ItemRectangle"
+                       Fill="Coral"
+                       Height="200" Width="400"
+                       />
+            <!--Height="80" Width="160"-->
+        </DataTemplate>
+
+        <!--FlipView-->
+        <Style x:Key="MyFlipViewTileStyle" TargetType="FlipViewItem">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Background" Value="DarkOliveGreen"/>
+            <Setter Property="Height" Value="300" />
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="TabNavigation" Value="Local" />
+            <!--<Setter Property="Height" Value="120" />
+            <Setter Property="Width" Value="200" />-->
+        </Style>
+        <DataTemplate x:Key="MyFlipViewTileTemplate">
+            <Rectangle x:Name="ItemRectangle"
+                       Fill="Coral"
+                       Height="200" Width="400"
+                       />
+            <!--Height="80" Width="160"-->
+        </DataTemplate>
+
+        <!--#1 ScrollViewer-->
+        <Style x:Key="MyScrollViewerStyle" TargetType="ScrollViewer">
             <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}"/>
             <Setter Property="BorderBrush" Value="DeepPink"/>
             <Setter Property="BorderThickness" Value="2"/>
-            <!--<Setter Property="ZoomMode" Value="Disabled"/>-->
+            <Setter Property="ZoomMode" Value="Disabled"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="VerticalScrollMode" Value="Enabled"/>
+            <Setter Property="HorizontalScrollMode" Value="Disabled"/>
+        </Style>
+        
+        <!--#2 ItemsControl-->
+        <Style x:Key="MyItemsControlStyle" TargetType="ItemsControl">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
 
+        <Style x:Key="MyHorizontalItemsControlStyle" TargetType="ItemsControl">
+            <Setter Property="Height" Value="300" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--#3 Rectangle-->
+        <Style x:Key="MyRectangleStyle" TargetType="Rectangle">
+            <Setter Property="Fill" Value="Coral" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Width" Value="400" />
+            <!--<Setter Property="Height" Value="300"/>
+            <Setter Property="Width" Value="500"/>-->
+
+            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        
+        <Style x:Key="MyVerticalScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}"/>
+            <Setter Property="BorderBrush" Value="DeepPink"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="ZoomMode" Value="Disabled"/>
+
+            <Setter Property="VerticalScrollMode" Value="Enabled"/>
+            <Setter Property="VerticalSnapPointsAlignment" Value="Near"/>
+            <Setter Property="VerticalSnapPointsType" Value="MandatorySingle"/>
+        </Style>
+        
         <Style x:Key="MyScrollContentPresenterStyle" TargetType="ScrollContentPresenter">
             <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
         </Style>
@@ -96,7 +140,7 @@
             <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
         </Style>
         
-        <Style x:Key="MyItemsControlStyle" TargetType="ItemsControl">
+        <Style x:Key="MyItemsControlStyleX" TargetType="ItemsControl">
             <!--<Setter Property="ItemsPanel" Value="{StaticResource MyItemsPanelStyle}"/>-->
             <!--<Setter Property="ItemsPanel">
                 <Setter.Value>
@@ -138,11 +182,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--NormalGridView   (L-R) :: NormalListView (U-D)     :: NormalFlipView (L-R)
-            VerticalGridView (U-D) :: HorizontalListView (L-R) :: VerticalFlipView (U-D)
-            SnappingGridView (L-R) :: SnappingListView (U-D)   :: NormalScrollViewer (U-D)
+        <!--NormalGridView     (L-R) :: NormalListView         (U-D) :: NormalFlipView (L-R)
+            VerticalGridView   (U-D) :: HorizontalListView     (L-R) :: VerticalFlipView (U-D)
+            NormalScrollViewer (U-D) :: HorizontalScrollViewer (L-R) :: CustomFlipView (L-R)
+            SnappingGridView   (L-R) :: SnappingListView       (U-D) :: SnappingScrollViewer (U-D)
         -->
-        <!--NormalView-->
+        <!--GridView-->
         <GridView x:Name="NormalGridView"
                   Grid.Row="0"
                   Grid.Column="0"
@@ -165,7 +210,7 @@
             </GridView.ItemsPanel>
         </GridView>
 
-        <!--TransposedView-->
+        <!--GridView-->
         <GridView x:Name="VerticalGridView"
                   Grid.Row="1"
                   Grid.Column="0"
@@ -188,7 +233,7 @@
             </GridView.ItemsPanel>
         </GridView>
 
-        <!--NormalView-->
+        <!--ListView-->
         <ListView x:Name="NormalListView"
                   Grid.Row="0"
                   Grid.Column="1"
@@ -206,7 +251,7 @@
                   SelectionMode="None">
         </ListView>
 
-        <!--TransposedView-->
+        <!--ListView-->
         <ListView x:Name="HorizontalListView"
                   Grid.Row="1"
                   Grid.Column="1"
@@ -229,10 +274,11 @@
             </ListView.ItemsPanel>
         </ListView>
 
-        <!--NormalView-->
+        <!--FlipView-->
         <FlipView x:Name="NormalFlipView"
                   Grid.Row="0"
                   Grid.Column="2"
+                  Visibility="Visible"
                   ItemTemplate="{StaticResource MyFlipViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyFlipViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
@@ -244,10 +290,11 @@
                   ScrollViewer.HorizontalScrollMode="Enabled">
         </FlipView>
 
-        <!--TransposedView-->
+        <!--FlipView-->
         <FlipView x:Name="VerticalFlipView"
                   Grid.Row="1"
                   Grid.Column="2"
+                  Visibility="Visible"
                   ItemTemplate="{StaticResource MyFlipViewTileTemplate}"
                   ItemContainerStyle="{StaticResource MyFlipViewTileStyle}"
                   Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
@@ -264,6 +311,61 @@
             </FlipView.ItemsPanel>
         </FlipView>
 
+        <!--ScrollViewer-->
+        <ScrollViewer x:Name="NormalScrollViewer"
+                      Grid.Row="2"
+                      Grid.Column="0"
+                      Visibility="Visible"
+                      Style="{StaticResource MyScrollViewerStyle}">
+            <ItemsControl x:Name="MyItemsControl" Style="{StaticResource MyItemsControlStyle}">
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!--ScrollViewer-->
+        <ScrollViewer x:Name="HorizontalScrollViewer"
+                      Grid.Row="2"
+                      Grid.Column="1"
+                      Visibility="Visible"
+                      Style="{StaticResource MyScrollViewerStyle}"
+                      VerticalScrollMode="Disabled"
+                      HorizontalScrollMode="Enabled">
+            <ItemsControl x:Name="MyHorizontalItemsControl" Style="{StaticResource MyHorizontalItemsControlStyle}">
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+            </ItemsControl>
+        </ScrollViewer>
 
         <!--Create custom class derived from ItemsControl and implement IScrollSnapPointsInfo interface.
             Create custom style for items control and set HorizontalSnapPointsType property on ScrollViewer inside the style.-->
@@ -273,29 +375,33 @@
         <!--ScrollViewer Style="{StaticResource MyVerticalScrollViewerStyle}"-->
         <!--ItemsControl Style="{StaticResource MyItemsControlStyle}"-->
         <!--local:SnappingItemsControl-->
-        <ScrollViewer x:Name="NormalScrollViewer"
+        <ScrollViewer x:Name="NormalScrollViewerX"
                       Grid.Row="2"
                       Grid.Column="2"
+                      Visibility="Collapsed"
                       Style="{StaticResource MyVerticalScrollViewerStyle}">
             <ScrollContentPresenter x:Name="SnappingScrollContentPresenter"
                                     Style="{StaticResource MyScrollContentPresenterStyle}">
-            <ItemsControl Style="{StaticResource MyItemsControlStyle}">
-                <Rectangle Height="150" Width="250" Fill="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Violet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Lime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Brown" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Cyan" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Gold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="DarkGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="DimGray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="MediumSpringGreen" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Height="150" Width="250" Fill="Salmon" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            </ItemsControl>
+                <ItemsControl x:Name="MyItemsControlX" Style="{StaticResource MyItemsControlStyle}">
+
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                    <Rectangle Style="{StaticResource MyRectangleStyle}"/>
+                </ItemsControl>
             </ScrollContentPresenter>
         </ScrollViewer>
         <!--<ListView></ListView>-->
