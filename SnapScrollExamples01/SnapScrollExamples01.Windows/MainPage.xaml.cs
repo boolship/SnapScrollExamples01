@@ -41,43 +41,42 @@ namespace SnapScrollExamples01
 
         /// <summary>
         /// What implements IScrollSnapPointsInfo?? 
+        /// (Y) Create custom class derived from ItemsControl and implement IScrollSnapPointsInfo interface.
+        /// (N) Create custom style for items control and set HorizontalSnapPointsType property on ScrollViewer inside the style
+        /// 
+        /// Ref: Windows.UI.Xaml.Controls.XXX implements IScrollSnapPointsInfo ??
         /// 
         /// Panel\StackPanel** - yes** (working)
         /// Control\ItemsControl\local:SnappingItemsControl** - yes** (working)
-        /// ItemsPresenter** - yes**
         /// 
-        /// Control\ItemsControl - no, yes iff ItemsControl custom style (not working)
-        ///   Create custom style for items control and set HorizontalSnapPointsType property on ScrollViewer inside the style
-        /// Control\ItemsControl\Selector\ListViewBase\GridView - no, yes iff GridView.ItemsPanel contains WrapGrid (not working)
-        /// Control\ItemsControl\Selector\ListViewBase\ListView - no
+        /// ItemsPresenter** - yes** (not working)
         /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\WrapGrid - yes**  (not working)
         /// Panel\VirtualizingPanel\OrientedVirtualizingPanel**\VirtualizingStackPanel** - yes**  (not working)
         /// 
+        /// Control\ContentControl\ScrollViewer - no
         /// Control\ItemsControl - no
         /// Control\ItemsControl\Selector\ListViewBase\ListView - no
+        /// Control\ItemsControl\Selector\ListViewBase\GridView - no
+        /// Control\ListControl\ListBox - no
         /// Panel\ItemsWrapGrid - no
-        /// ListBox - no
         /// </summary>
         private void Workarounds()
         {
-            //var scrollViewer = FindScrollViewer(NormalGridView);
+            // TODO Configure ScrollViewer in style or code below. Snaps iff ScrollViewer contains StackPanel, SnappingItemsControl
+            //var scrollViewer = FindScrollViewer(SnappingScrollViewer1);
             //if (scrollViewer != null)
             //{
             //    // Mandatory, MandatorySingle, Optional, OptionalSingle, None
-            //    scrollViewer.HorizontalSnapPointsType = SnapPointsType.MandatorySingle;
+            //    scrollViewer.VerticalSnapPointsType = SnapPointsType.MandatorySingle;
+
             //    // Center, Far, Near
             //    // For a vertically oriented element, Near is the top and Far is the bottom.
             //    // For a horizontally oriented element, Near is left and Far is right.
-            //    scrollViewer.HorizontalSnapPointsAlignment = SnapPointsAlignment.Center;
+            //    scrollViewer.VerticalSnapPointsAlignment = SnapPointsAlignment.Near;
+                
             //    // Center, Left, Right, Stretch
-            //    //scrollViewer.HorizontalContentAlignment = HorizontalAlignment.Left;
+            //    scrollViewer.HorizontalContentAlignment = HorizontalAlignment.Center;
             //}
-
-
-
-            //NormalGridView.ScrollIntoView(new object(), ScrollIntoViewAlignment.Leading);
-            //NormalGridView.ShowsScrollingPlaceholders = true;
-
         }
 
         private ScrollViewer FindScrollViewer(DependencyObject d)

@@ -9,7 +9,7 @@ namespace SnapScrollExamples01
     {
         // TODO fixme bug: snap Near trims last item because scrolling last would exceed Size
         private const int NumItems = 30;
-        private const float VerticalSize = 150f;
+        private const float VerticalSize = 210f;
 
         public IReadOnlyList<float> GetIrregularSnapPoints(Orientation orientation, SnapPointsAlignment alignment)
         {
