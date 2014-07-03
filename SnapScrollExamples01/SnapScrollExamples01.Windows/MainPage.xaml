@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <!-- ReSharper disable UnusedMember.Local -->
 
         <!--GridView-->
         <Style x:Key="MyGridViewTileStyle"  TargetType="GridViewItem">
@@ -162,9 +163,13 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
+
+        <!-- ReSharper restore UnusedMember.Local -->
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- ReSharper disable UnusedMember.Local -->
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -445,5 +450,7 @@
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
             </local:SnappingItemsControl>
         </ScrollViewer>
+    
+        <!-- ReSharper restore UnusedMember.Local -->
     </Grid>
 </Page>
