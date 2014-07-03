@@ -340,7 +340,7 @@
                       Style="{StaticResource MyScrollViewerStyle}"
                       VerticalScrollMode="Disabled"
                       HorizontalScrollMode="Enabled">
-            <ItemsControl x:Name="MyHorizontalItemsControl" 
+            <ItemsControl x:Name="MyHorizontalItemsControlUx" 
                           Style="{StaticResource MyHorizontalItemsControlStyle}">
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
@@ -398,7 +398,7 @@
                       Grid.Column="2"
                       Visibility="Collapsed"
                       Style="{StaticResource MyScrollViewerStyle}">
-            <StackPanel>
+            <StackPanel x:Name="MySnappingStackPanelUx">
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
@@ -424,7 +424,7 @@
                       Grid.Column="2"
                       Visibility="Collapsed"
                       Style="{StaticResource MyScrollViewerStyle}">
-            <local:SnappingItemsControl >
+            <local:SnappingItemsControl x:Name="MyLocalSnappingItemsControlUx">
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
                 <Rectangle Style="{StaticResource MyRectangleStyle}"/>
