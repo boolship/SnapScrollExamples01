@@ -3,5 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SnapScrollExamples01">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!--TODO fixme008 FlipViewIndicatorDictionary-->
+                <!--<ResourceDictionary Source="FlipViewIndicatorDictionary.xaml"/>-->
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
 
 </Application>
