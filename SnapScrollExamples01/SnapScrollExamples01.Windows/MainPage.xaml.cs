@@ -73,7 +73,7 @@ namespace SnapScrollExamples01
             //    // For a vertically oriented element, Near is the top and Far is the bottom.
             //    // For a horizontally oriented element, Near is left and Far is right.
             //    scrollViewer.VerticalSnapPointsAlignment = SnapPointsAlignment.Near;
-                
+
             //    // Center, Left, Right, Stretch
             //    scrollViewer.HorizontalContentAlignment = HorizontalAlignment.Center;
             //}
