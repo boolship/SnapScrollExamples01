@@ -36,6 +36,7 @@ namespace SnapScrollExamples01
             var flipView = (e.NewValue as FlipView);
             if (indicator != null && flipView != null)
             {
+                // binding
                 indicator.ItemsSource = flipView.ItemsSource;
                 var binding = new Binding
                 {
