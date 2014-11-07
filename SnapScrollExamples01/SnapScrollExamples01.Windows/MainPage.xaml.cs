@@ -34,7 +34,8 @@ namespace SnapScrollExamples01
             VerticalFlipView.ItemsSource = flipViewData2.Collection;
 
             // debug only
-            WinRTXamlToolkit.Debugging.DC.ShowVisualTree();
+            WinRTXamlToolkit.Debugging.DC.ShowVisualTree(this);
+            //WinRTXamlToolkit.Debugging.DC.ShowVisualTree(this);
 
             Workarounds();
         }
